@@ -24,15 +24,19 @@ export default {
     }
   },
   created(){
-    let dados = {
-      url:'https://pokeapi.co/api/v2/generation/',
-      params: {}
-    }
-    this.$store.dispatch('getGeracaos',dados);
+
+    this.getGeracoes()
   },
   methods:{
     clearHistory(){
       this.$store.dispatch('clearHistory');
+    },
+    getGeracoes(){
+      let dados = {
+        url:'https://pokeapi.co/api/v2/generation/',
+        params: {}
+      }
+      this.$store.dispatch('getGeracaos',dados);
     }
   },
   computed: {
@@ -42,7 +46,7 @@ export default {
     geracoes() {
       return this.$store.state.geracoes;
     }
-  }
+  },
 }
 </script>
 
